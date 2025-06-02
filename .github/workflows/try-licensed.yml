@@ -22,4 +22,6 @@ jobs:
       with:
         version: '5.x'
 
-    - run: licensed list
+    - run: |
+        cd winforms-netframework/WindowsFormsApp1
+        licensed list
