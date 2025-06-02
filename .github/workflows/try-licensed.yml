@@ -20,6 +20,6 @@ jobs:
 
     - uses: licensee/setup-licensed@0d52e575b3258417672be0dff2f115d7db8771d8 # v1.3.2
       with:
-        version: '4.x'
+        version: '5.x'
 
     - run: licensed list
