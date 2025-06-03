@@ -56,9 +56,7 @@ jobs:
       run: |
         touch .licenses/NOTICE
         licensed notices
-        echo "notice<<EOF" >> $env:GITHUB_ENV
+        echo "notice-file<<EOF" >> $env:GITHUB_ENV
         cat .licenses/NOTICE >> $env:GITHUB_ENV
         echo "EOF" >> $env:GITHUB_ENV
-
-    - name: Display NOTICE
-      run: echo "${{ env.notice }}"
+        echo "${{ env.notice-file }}" >> $env:GITHUB_STEP_SUMMARY
