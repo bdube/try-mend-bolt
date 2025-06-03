@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-    - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+    # - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
     # - run: npm install
 
     - uses: ruby/setup-ruby@13e7a03dc3ac6c3798f4570bfead2aed4d96abfb # v1.244.0
@@ -33,11 +33,11 @@ jobs:
     - run: |
         pushd winforms-netframework/WindowsFormsApp1
         # msbuild WindowsFormsApp1.csproj -t:Build -p:Configuration=Release
-        dotnet restore --use-lock-file
+        # dotnet restore --use-lock-file
         dotnet build
         popd
         pushd classlibrary-net9/ClassLibrary1
-        dotnet restore --use-lock-file
+        # dotnet restore --use-lock-file
         dotnet build
         popd
         licensed env
