@@ -1,5 +1,10 @@
+sources:
+  nuget: true
+
 allowed:
 - apache-2.0
 - mit
 - bsd-2-clause
 - bsd-3-clause
+
+source_path: winforms-netframework/WindowsFormsApp1/obj
