@@ -41,12 +41,24 @@ jobs:
         dotnet build
         popd
 
-    - name: Check licenses
+    - name: Licensed environment
+      run: licensed env
+
+    - name: List licenses
+      run: licensed list --licenses --format=json
+
+    - name: Cache licenses
       run: |
-        licensed env
-        licensed list --licenses --format=json
         mkdir .licenses
-        touch .licenses/NOTICE
         licensed cache
+
+    - name: Generate NOTICE
+      run: |
+        touch .licenses/NOTICE
         licensed notices
-        cat .licenses/NOTICE
+        echo "notice<<EOF" >> $env:GITHUB_ENV
+        cat .licenses/NOTICE >> $env:GITHUB_ENV
+        echo "EOF" >> $env:GITHUB_ENV
+
+    - name: Display NOTICE
+      run: echo "${{ env.notice }}"
