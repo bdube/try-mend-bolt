@@ -44,5 +44,6 @@ jobs:
         licensed list --licenses --format=json
         mkdir .licenses
         touch .licenses/NOTICE
+        licensed cache
         licensed notices
         cat .licenses/NOTICE
