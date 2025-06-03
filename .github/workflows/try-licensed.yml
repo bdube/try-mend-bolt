@@ -30,9 +30,9 @@ jobs:
       with:
         version: '5.x'
 
-    - run: |
+    - name: Build projects
+      run: |
         pushd winforms-netframework/WindowsFormsApp1
-        # msbuild WindowsFormsApp1.csproj -t:Build -p:Configuration=Release
         dotnet restore # --use-lock-file
         dotnet build
         popd
@@ -40,6 +40,9 @@ jobs:
         dotnet restore # --use-lock-file
         dotnet build
         popd
+
+    - name: Check licenses
+      run: |
         licensed env
         licensed list --licenses --format=json
         mkdir .licenses
