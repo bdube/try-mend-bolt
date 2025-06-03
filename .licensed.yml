@@ -7,4 +7,6 @@ allowed:
 - bsd-2-clause
 - bsd-3-clause
 
-source_path: winforms-netframework/WindowsFormsApp1/obj
+source_path:
+- winforms-netframework/WindowsFormsApp1/obj
+- classlibrary-net9/ClassLibrary1/obj

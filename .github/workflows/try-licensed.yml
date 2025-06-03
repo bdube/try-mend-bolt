@@ -36,6 +36,10 @@ jobs:
         dotnet restore --use-lock-file
         dotnet build
         popd
+        pushd classlibrary-net9/ClassLibrary1
+        dotnet restore --use-lock-file
+        dotnet build
+        popd
         licensed env
         licensed list --licenses --format=json
         mkdir .licenses
