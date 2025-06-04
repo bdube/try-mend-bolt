@@ -33,11 +33,11 @@ jobs:
     - name: Build projects
       run: |
         pushd winforms-netframework/WindowsFormsApp1
-        dotnet restore # --use-lock-file
+        dotnet restore --use-lock-file
         dotnet build
         popd
-        pushd classlibrary-net9/ClassLibrary1
-        dotnet restore # --use-lock-file
+        pushd classlibrary-net8/ClassLibrary1
+        dotnet restore --use-lock-file
         dotnet build
         popd
 
@@ -49,14 +49,12 @@ jobs:
 
     - name: Cache licenses
       run: |
-        mkdir .licenses
+        mkdir winforms-netframework/WindowsFormsApp1/.licenses
+        mkdir classlibrary-net8/ClassLibrary1/.licenses
         licensed cache
 
     - name: Generate NOTICE
       run: |
-        touch .licenses/NOTICE
         licensed notices
-        echo "notice-file<<EOF" >> $env:GITHUB_ENV
-        cat .licenses/NOTICE >> $env:GITHUB_ENV
-        echo "EOF" >> $env:GITHUB_ENV
-        echo "${{ env.notice-file }}" >> $env:GITHUB_STEP_SUMMARY
+        cat winforms-netframework/WindowsFormsApp1/.licenses/NOTICE
+        cat classlibrary-net8/ClassLibrary1/.licenses/NOTICE
